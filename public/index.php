@@ -18,6 +18,12 @@ $app->setBasePath((function () {
     return '';
 })());
 
+$app->get('/test/{arg}', function (Request $request, Response $response, $args) {
+    $aargh = $request->getAttribute('arg');
+    $response->getBody()->write("Test erfolgreich! " . $aargh);
+    return $response;
+});
+
 // Sonderfall: Anmeldung
 // $app->post('/api', );
 
